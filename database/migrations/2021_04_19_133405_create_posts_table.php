@@ -19,8 +19,10 @@ class CreatePostsTable extends Migration
             $table->string('caption');
             $table->string('image');
             $table->timestamps();
+            
+            $table->foreign('user_id')->references('id')->on('users');
 
-            $table->index('user_id');
+            //$table->index('user_id');
         });
     }
 

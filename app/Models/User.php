@@ -21,6 +21,8 @@ class User extends Authenticatable
         'email',
         'username',
         'password',
+        'title',
+        'description',
     ];
 
     /**
@@ -43,10 +45,6 @@ class User extends Authenticatable
     ];
 
     public function posts() {
-      return $this->hasMany(Post::class);
-    }
-
-    public function profile() {
-      return $this->hasOne(Profile::class);
+      return $this->hasMany(Post::class)->orderBy('created_at','DESC');
     }
 }
