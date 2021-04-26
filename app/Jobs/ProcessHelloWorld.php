@@ -30,6 +30,11 @@ class ProcessHelloWorld implements ShouldQueue
      */
     public function handle()
     {
-      
+
+      $content = "some text here";
+      $fp = fopen("C:\Users\Nicolas\Desktop\myText.txt","wb");
+      fwrite($fp,$content);
+      fclose($fp);
+
     }
 }

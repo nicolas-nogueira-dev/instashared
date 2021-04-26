@@ -15,8 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-      ProcessHelloWorld::dispatch();
-        return view('users/index', [
+        $this->dispatch(new ProcessHelloWorld());
+
+        return view('users.index', [
           'users'=>User::get(),
           ]);
     }
