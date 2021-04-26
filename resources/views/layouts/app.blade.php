@@ -26,6 +26,9 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Instashared
                 </a>
+                <a class="navbar-brand" href="/users/">
+                    Users
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -58,7 +61,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a href="../users/{{auth()->user()->id}}" class="dropdown-item">My Profile</a>
+                                    <a href="/users/{{auth()->user()->id}}" class="dropdown-item">My Profile</a>
+                                    <a href="/users/{{auth()->user()->id}}/edit" class="dropdown-item">Edit My Profile</a>
+                                    <a href="/posts/create" class="dropdown-item">Add New Post</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
