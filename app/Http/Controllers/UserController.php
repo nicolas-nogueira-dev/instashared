@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\ProcessHelloWorld;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,8 +15,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        $this->dispatch(new ProcessHelloWorld());
-
         return view('users.index', [
           'users'=>User::get(),
           ]);
