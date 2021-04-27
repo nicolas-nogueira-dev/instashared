@@ -18,5 +18,6 @@ Route::resource('home', App\Http\Controllers\HomeController::class);
 
 
 Route::resource('posts', App\Http\Controllers\PostsController::class);
+Route::resource('pdfs', App\Http\Controllers\PdfController::class);
 
 Route::resource('users', App\Http\Controllers\UserController::class);

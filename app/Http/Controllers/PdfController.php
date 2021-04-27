@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class PdfController extends Controller
 {
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'pdf' => ['required', 'pdf'],
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,7 @@ class PdfController extends Controller
      */
     public function index()
     {
-        //
+        return view('pdf.index');
     }
 
     /**
@@ -24,7 +30,7 @@ class PdfController extends Controller
      */
     public function create()
     {
-        //
+      return view('pdf.create');
     }
 
     /**
@@ -36,18 +42,16 @@ class PdfController extends Controller
     public function store(Request $request)
     {
       $data = request()->validate([
-        'caption' => ['required', 'string', 'max:255'],
-        'image' => ['required', 'image'],
+        'pdf' => ['required', 'pdf'],
       ]);
 
-      $imagePath = request('image')->store('uploads','public');
+      $imagePath = request('pdf')->store('uploads','public');
 
-      auth()->user()->posts()->create([
-        'caption' => $data['caption'],
-        'image' => $imagePath,
+      pdf()->create([
+        'pdf' => $imagePath,
       ]);
 
-      return redirect('/users/'.auth()->user()->id);
+      return redirect('/pdfs/');
     }
 
     /**

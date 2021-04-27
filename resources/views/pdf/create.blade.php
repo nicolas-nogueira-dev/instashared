@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <form action="/posts" method="post" enctype="multipart/form-data">
+  <form action="/pdfs" method="post" enctype="multipart/form-data">
     @csrf
 
     <div class="row">
@@ -10,7 +10,7 @@
     </div>
 
     <div class="row">
-        <label for="pdf" class="col-md-4 col-form-label">Post Pdf</label>
+        <label for="pdf" class="col-md-4 col-form-label">Add Pdf</label>
 
             <input id="pdf" type="file" class="form-control-file" name="pdf">
 
