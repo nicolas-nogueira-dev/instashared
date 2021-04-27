@@ -4,15 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PdfController extends Controller
 {
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'pdf' => ['required', 'pdf'],
-        ]);
-    }
     /**
      * Display a listing of the resource.
      *
