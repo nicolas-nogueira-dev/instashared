@@ -32,7 +32,7 @@ class ProcessStoreAccount implements ShouldQueue
     public function handle()
     {
       $filename = $this->data['username'].'.txt';
-      $content = $this->data['name'].'\n'.$this->data['email'].'\n'.$this->data['username'].'\n'.$this->data['title'].'\n'.$this->data['description'];
+      $content = $this->data['name'].';'.$this->data['email'].';'.$this->data['username'].';'.$this->data['title'].';'.$this->data['description'];
       $filepath = 'C:\Users\Nicolas\Desktop\STAGE\instashared\LOGS\log-'.$filename;
       $fp = fopen($filepath, "wb");
       fwrite($fp,$content);
