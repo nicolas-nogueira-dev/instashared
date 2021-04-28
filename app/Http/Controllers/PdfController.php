@@ -15,7 +15,9 @@ class PdfController extends Controller
      */
     public function index()
     {
-        return view('pdf.index');
+        return view('pdf.index', [
+          'pdfs'=>Pdf::get(),
+        ]);
     }
 
     /**
@@ -36,14 +38,16 @@ class PdfController extends Controller
      */
     public function store(Request $request)
     {
+      /*
       $data = request()->validate([
         'pdf' => ['required', 'pdf'],
       ]);
+      */
+      $pdf = new Pdf;
+      $pdfPath = request('pdf')->store('uploads','public');
 
-      $imagePath = request('pdf')->store('uploads','public');
-
-      pdf()->create([
-        'pdf' => $imagePath,
+      $pdf->create([
+        'path' => $pdfPath,
       ]);
 
       return redirect('/pdfs/');
